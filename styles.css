@@ -21,5 +21,5 @@
 }
 
 * {
-    overflow-x: hidden;
+    overflow-x: scroll;
 }

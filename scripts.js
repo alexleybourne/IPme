@@ -50,6 +50,7 @@ function requestIP2(){
         var myJSON = JSON.stringify(data)
         document.getElementById("ipArea").innerHTML = `Your Fake IP: ${ipAddress}`
         document.getElementById("textArea").innerHTML = `${myJSON}`
+        // document.getElementById("map").src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&amp;q=-27.46794%2C153.02809&amp;zoom=12"
       })
     .catch(function(error) {
       console.log(error)
