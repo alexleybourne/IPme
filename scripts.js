@@ -1,4 +1,4 @@
-const url1 = "https://proxycheck.io/v2/"
+const url1 = "https://api.codetabs.com/v1/proxy?quest=https://proxycheck.io/v2"
 const url2 = "https://ipapi.co/json/"
 
 requestIP()
@@ -17,11 +17,11 @@ function requestIP() {
     .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
-        let ipAddress = data.proxy
-        console.log(ipAddress)
+        // let usingProxy = data.proxy
+        // console.log(usingProxy)
         var myJSON = JSON.stringify(data)
-        document.getElementById("ipArea").innerHTML = `${ipAddress}`
-        // document.getElementById("textArea").innerHTML = `${myJSON}`
+        // document.getElementById("ipArea").innerHTML = `${usingProxy}`
+        document.getElementById("textArea").innerHTML = `${myJSON}`
       })
     .catch(function(error) {
       console.log(error)
