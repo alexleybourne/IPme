@@ -1,4 +1,5 @@
-const url = "http://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,asname,reverse,mobile,proxy,query"
+const url1 = "http://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,asname,reverse,mobile,proxy,query"
+const url2 = "https://ipapi.co/json/"
 
 requestIP()
 
@@ -12,7 +13,7 @@ function requestIP() {
     }
     
     const ul = document.getElementById('query')
-    fetch(url)
+    fetch(url1)
     .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
@@ -24,6 +25,35 @@ function requestIP() {
       })
     .catch(function(error) {
       console.log(error)
+      requestIP2()
+    }) 
+}
+
+// Fallback Request
+
+function requestIP2(){
+    function createNode(element) {
+        return document.createElement(element)
+    }
+    
+    function append(parent, el) {
+      return parent.appendChild(el)
+    }
+    
+    const ul = document.getElementById('query')
+    fetch(url2)
+    .then((resp) => resp.json())
+    .then(function(data) {
+        console.log(data)
+        let ipAddress = data.ip
+        console.log("Secondary Request  " + ipAddress)
+        var myJSON = JSON.stringify(data)
+        document.getElementById("ipArea").innerHTML = `Your Fake IP: ${ipAddress}`
+        document.getElementById("textArea").innerHTML = `${myJSON}`
+      })
+    .catch(function(error) {
+      console.log(error)
+      document.getElementById("ipArea").innerHTML = "IDK Whats going on"
     }) 
 }
 

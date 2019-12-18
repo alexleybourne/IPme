@@ -15,9 +15,9 @@
     font-size: 12px;
 }
 
-.uk-card-body {
+.uk-card {
     border-radius: 10px !important;
-    margin: 5rem;
+    margin: 5rem !important;
 }
 
 * {
