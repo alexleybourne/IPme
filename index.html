@@ -33,6 +33,11 @@
     <link rel="stylesheet" href="uikit/uikit.min.css" />
     <script src="uikit/uikit.min.js"></script>
     <script src="uikit/uikit-icons.min.js"></script>
+
+    <!-- Map Kit -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
   </head>
   <body>
     <div
@@ -78,33 +83,13 @@
       </div>
     </div>
 
-
-    <!-- <div>
-        <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
-            <div>
-                <br><br>
-            <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                <h3 class="uk-card-title" id="ipArea">Your IP</h3>
-                <p id="textArea" >I'm gonna find you -_-</p>
-                <tr>
-                    <td id="map">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&amp;q=-27.46794%2C153.02809&amp;zoom=12" width="90%" height="400" frameborder="0" style="border-radius: 10px;" allowfullscreen="">
-                        </iframe>
-                    </td>
-                </tr>
-            </div>
-            
-            <br><br>
-        </div>
-    </div>
-    </div> -->
-
     <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
     <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
             <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                 <tr>
                     <td>
-                        <img style="position: absolute; top: 15%; left: 0%; z-index: 1;" src="https://i.pinimg.com/originals/d7/ae/01/d7ae0170d3d5ffcbaa7f02fdda387a3b.gif" height= "300px" width = "450px">
+                        <!-- Animation done by Vladimir Liubarskiy (https://dribbble.com/shots/5612222-Around-the-world) -->
+                        <img style="position: absolute; top: 10%; left: 5%; z-index: 1;" src="https://i.pinimg.com/originals/d7/ae/01/d7ae0170d3d5ffcbaa7f02fdda387a3b.gif" height= "300px" width = "450px">
                         <iframe id="map" style=" position: relative; margin: 20px; border-radius: 6px; z-index: 3;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&amp;q=-27.46794%2C153.02809&amp;zoom=12" width="90%" height="400px" frameborder="0" allowfullscreen="">
                         </iframe>
                         
@@ -118,6 +103,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+    <p style="font-size: 12px;" class="uk-text-center">Created By <b>Alex Leybourne</b></p>
   </body>
 </html>
