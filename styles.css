@@ -19,3 +19,7 @@
     border-radius: 10px !important;
     margin: 5rem;
 }
+
+* {
+    overflow-x: hidden;
+}
