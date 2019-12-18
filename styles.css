@@ -1,0 +1,20 @@
+.white .uk-navbar-nav {
+    color: white!important;   
+}
+
+.uk-tooltip {
+    display: none;
+    position: absolute;
+    z-index: 1030;
+    box-sizing: border-box;
+    max-width: 200px;
+    padding: 3px 6px;
+    background: #007bff !important;
+    border-radius: 50px !important;
+    color: #fff;
+    font-size: 12px;
+}
+
+.uk-card-body {
+    border-radius: 10px !important;
+}
