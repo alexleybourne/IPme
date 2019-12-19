@@ -27,7 +27,7 @@ function requestIP() {
         document.getElementById("ipArea").innerHTML = `Your IP: ${ipAddress}`
         document.getElementById("riskLevel").innerHTML = `${myJSON}`
 
-        let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=12"
+        let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=4"
         document.getElementById("map").src = mapSRC
         console.log("Google Maps link:  " + mapSRC)
 
@@ -98,8 +98,11 @@ function ipCheckLinkMaker(){
 
             document.getElementById("ipDescription").innerHTML = ipDescription2.innerHTML.replace( /- /g,'')
 
+            if (ipNum > 40){
             
+                document.getElementById("ipArea").innerHTML = `Your False IP: ${ipAddress}`
 
+            }
 
         })
     
