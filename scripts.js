@@ -40,16 +40,17 @@ function requestIP() {
         
         var mapIframe = document.getElementById("map")
 
+
         mapIframe.src = mapSRC
         console.log("Google Maps link:  " + mapSRC)
 
-        // Hides Loader
-        document.getElementById("worldLoader").innerHTML = ""
 
         mapIframe.style.position = ""
         mapIframe.style.opacity = "1"
 
         ipCheckLinkMaker()
+        // Hides Loader
+        document.getElementById("worldLoader").innerHTML = ""
 
       })
     .catch(function(error) {
