@@ -80,11 +80,17 @@ function ipCheckLinkMaker(){
             outputField.innerHTML = result
             pageScrape = result
             
-            var div = document.getElementsByClassName("partner-markets")[0]
-            console.log(div)
+            var ipDescription = document.getElementsByClassName("partner-markets")[0]
+            console.log(ipDescription)
 
-            var div = document.getElementsByClassName("partner-markets")[1]
-            console.log(div)
+            var ipScore = document.getElementsByClassName("partner-markets")[1]
+            console.log(ipScore)
+
+            document.getElementById("fraudText").innerHTML = "<div>" + ipDescription.innerHTML + "</div>"
+
+            document.getElementById("textArea").innerHTML = "<div>" + ipScore.innerHTML + "</div>"
+
+
         })
     
         
