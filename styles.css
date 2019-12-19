@@ -15,6 +15,19 @@
     font-size: 12px;
 }
 
+.map {
+    justify-self: center;
+    align-self: center;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.uk-card-body {
+    padding: 20px !important;
+    margin: auto !important;
+    margin-bottom: auto !important; 
+}
+
 .uk-card {
     border-radius: 10px !important;
     margin: 4vh 5vw 2vh 5vw !important;

@@ -33,14 +33,21 @@ function requestIP() {
         document.getElementById("cloudLoader").innerHTML = ""
 
         // Populates info from server
-
-        document.getElementById("ipArea").innerHTML = `IP: ${ipAddress}`
-        document.getElementById("worldLoader").innerHTML = ""
+        document.getElementById("ipArea").innerHTML = `<span uk-icon="icon: search; ratio: 1.5"></span> IP: ${ipAddress}`
 
         // Google Maps section
         let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=4"
-        document.getElementById("map").src = mapSRC
+        
+        var mapIframe = document.getElementById("map")
+
+        mapIframe.src = mapSRC
         console.log("Google Maps link:  " + mapSRC)
+
+        // Hides Loader
+        document.getElementById("worldLoader").innerHTML = ""
+
+        mapIframe.style.position = ""
+        mapIframe.style.opacity = "1"
 
         ipCheckLinkMaker()
 
