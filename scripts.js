@@ -79,16 +79,16 @@ function ipCheckLinkMaker(){
         }, function printResult(result) {
             outputField.innerHTML = result
             pageScrape = result
+            
+            var div = document.getElementsByClassName("partner-markets")[1]
+            console.log(div)
         })
     
         
     })()
     
-    if (typeof console === 'object') {
-        console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:')
-        console.log('cors_api_url = "http://localhost:8080/"')
-    }
+    
 
     ///////////////////////////
-          
+
 }
