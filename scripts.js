@@ -24,7 +24,7 @@ function requestIP() {
         console.log("IP Address:  " + ipAddress)
 
         var myJSON = JSON.stringify(data)
-        document.getElementById("ipArea").innerHTML = `Your IP: ${ipAddress}`
+        document.getElementById("ipArea").innerHTML = `IP: ${ipAddress}`
         document.getElementById("riskLevel").innerHTML = `${myJSON}`
 
         let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=4"
@@ -100,7 +100,7 @@ function ipCheckLinkMaker(){
 
             if (ipNum > 40){
             
-                document.getElementById("ipArea").innerHTML = `Your False IP: ${ipAddress}`
+                document.getElementById("ipArea").innerHTML = `IP: ${ipAddress}`
 
             }
 
