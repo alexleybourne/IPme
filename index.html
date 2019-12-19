@@ -71,14 +71,14 @@
     </div>
 
     <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
-    <div style="width: 100%;" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+    <div style="width: 100%; min-height: 70vh;" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
             <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                 <tr>
                     <td>
                         <!-- Animation done by Vladimir Liubarskiy (https://dribbble.com/shots/5612222-Around-the-world) -->
-                        <img style="position: absolute; top: 10%; left: 5%; z-index: 1;" src="gifs/world.gif" height= "300px" width = "450px">
-                        <iframe id="map" style=" position: relative; margin: 20px; border-radius: 6px; z-index: 3;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=LONGITUDE%2CLATITUDE&zoom=12" width="90%" height="400px" frameborder="0" allowfullscreen="">
-                        </iframe>
+                        <div id="worldLoader"><img style="position: absolute; top: 10%; left: 5%; z-index: 1;" src="gifs/world.gif" height= "300px" width = "450px"></div>
+                        
+                        <iframe id="map" style=" position: relative; margin: 10px; border-radius: 6px; z-index: 3;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=LONGITUDE%2CLATITUDE&zoom=12" width="90%" height="90%" frameborder="0" allowfullscreen=""></iframe>
                     </td>
                 </tr>
             </div>

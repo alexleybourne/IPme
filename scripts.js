@@ -35,7 +35,7 @@ function requestIP() {
         // Populates info from server
 
         document.getElementById("ipArea").innerHTML = `IP: ${ipAddress}`
-        document.getElementById("riskLevel").innerHTML = `${myJSON}`
+        document.getElementById("worldLoader").innerHTML = ""
 
         // Google Maps section
         let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=4"

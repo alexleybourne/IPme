@@ -17,11 +17,11 @@
 
 .uk-card {
     border-radius: 10px !important;
-    margin: 4rem 5rem 2rem 5rem !important;
+    margin: 4vh 5vw 2vh 5vw !important;
 }
 
 * {
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .output {
