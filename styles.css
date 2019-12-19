@@ -23,3 +23,13 @@
 * {
     overflow-x: scroll;
 }
+
+.output {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    scale: 0;
+    height: 1px;
+    width: 1px;
+}
+}

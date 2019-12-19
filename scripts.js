@@ -80,6 +80,9 @@ function ipCheckLinkMaker(){
             outputField.innerHTML = result
             pageScrape = result
             
+            var div = document.getElementsByClassName("partner-markets")[0]
+            console.log(div)
+
             var div = document.getElementsByClassName("partner-markets")[1]
             console.log(div)
         })
