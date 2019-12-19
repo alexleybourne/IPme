@@ -1,9 +1,12 @@
+// Created By Alex Leybourne :)
+
 const url1 = "https://ipapi.co/json/"
 var ipAddress = ""
 var ipCheckSRC = ""
 
 requestIP()
 
+//  Free IP Api -> URL 1
 function requestIP() {
     function createNode(element) {
         return document.createElement(element)
@@ -24,9 +27,17 @@ function requestIP() {
         console.log("IP Address:  " + ipAddress)
 
         var myJSON = JSON.stringify(data)
+
+        // Hides Cloud Loader Gif
+
+        document.getElementById("cloudLoader").innerHTML = ""
+
+        // Populates info from server
+
         document.getElementById("ipArea").innerHTML = `IP: ${ipAddress}`
         document.getElementById("riskLevel").innerHTML = `${myJSON}`
 
+        // Google Maps section
         let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=4"
         document.getElementById("map").src = mapSRC
         console.log("Google Maps link:  " + mapSRC)
