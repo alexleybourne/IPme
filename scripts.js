@@ -1,6 +1,5 @@
 const url1 = "https://ipapi.co/json/"
 var ipAddress = ""
-var fraudScore = ""
 var ipCheckSRC = ""
 
 requestIP()
@@ -26,7 +25,7 @@ function requestIP() {
 
         var myJSON = JSON.stringify(data)
         document.getElementById("ipArea").innerHTML = `Your IP: ${ipAddress}`
-        document.getElementById("textArea").innerHTML = `${myJSON}`
+        document.getElementById("riskLevel").innerHTML = `${myJSON}`
 
         let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=12"
         document.getElementById("map").src = mapSRC
@@ -79,16 +78,27 @@ function ipCheckLinkMaker(){
         }, function printResult(result) {
             outputField.innerHTML = result
             pageScrape = result
-            
+
+            var ipScore = (document.getElementsByClassName("partner-markets")[1])
+            var ipNum = ipScore.getElementsByTagName('span')[0].innerHTML
+            console.log("IP Score:  " + ipNum)
+
+            document.getElementById("ipScore").innerHTML = ("Level of Risk = " + ipNum + " / 100")
+
+
+            // Description of IP and Level of Risk
             var ipDescription = document.getElementsByClassName("partner-markets")[0]
-            console.log(ipDescription)
+            var ipDescriptionDelete = ipDescription.getElementsByTagName("span")[0]
+            var ipDescription2 = ipDescription
+            console.log("IP Risk Level:  " + ipDescriptionDelete.innerHTML)
+            document.getElementById("riskLevel").innerHTML = ipDescriptionDelete.innerHTML
 
-            var ipScore = document.getElementsByClassName("partner-markets")[1]
-            console.log(ipScore)
+            ipDescription2.getElementsByTagName("span")[0].innerHTML = ""
+            console.log("IP Description:  " + ipDescription2.innerHTML)
 
-            document.getElementById("fraudText").innerHTML = "<div>" + ipDescription.innerHTML + "</div>"
+            document.getElementById("ipDescription").innerHTML = ipDescription2.innerHTML.replace( /- /g,'')
 
-            document.getElementById("textArea").innerHTML = "<div>" + ipScore.innerHTML + "</div>"
+            
 
 
         })
