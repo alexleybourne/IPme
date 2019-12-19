@@ -46,58 +46,52 @@ textarea {
 </style>
 </head>
 <body>
-<div id="top">
-  <label>
-    <button id="get">GET</button><button id="post">POST</button>
-  </label>
-</div>
 <div id="bottom">
   <textarea id="output"></textarea>
 </div>
 
 <script>
-  var ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/115.165.171.110"
+  var ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/115.165.171.169"
   var cors_api_url = 'https://cors-anywhere.herokuapp.com/'
   var pageScrape = ""
 
   function doCORSRequest(options, printResult) {
     var x = new XMLHttpRequest();
-    x.open(options.method, cors_api_url + options.url);
+    x.open(options.method, cors_api_url + options.url)
     x.onload = x.onerror = function() {
       printResult(
         options.method + ' ' + options.url + '\n' +
         x.status + ' ' + x.statusText + '\n\n' +
         (x.responseText || '')
-      );
-    };
-    if (/^POST/i.test(options.method)) {
-      x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      )
     }
-    x.send(options.data);
+    if (/^POST/i.test(options.method)) {
+      x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    }
+    x.send(options.data)
   }
 
   // Bind event
   (function() {
-    var urlField = document.getElementById('url');
-    var dataField = document.getElementById('data');
-    var outputField = document.getElementById('output');
-    document.getElementById('get').onclick =
-    document.getElementById('post').onclick = function(e) {
-      e.preventDefault();
+    var outputField = document.getElementById('output')
+    
+
       doCORSRequest({
-        method: this.id === 'post' ? 'POST' : 'GET',
+        method: "POST",
         url: `${ipCheckSRC}`,
-        data: ""
       }, function printResult(result) {
-        outputField.value = result;
+        outputField.value = result
         pageScrape = result
-      });
-    };
-  })();
+      })
+
+    
+  })()
+
   if (typeof console === 'object') {
-    console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:');
-    console.log('cors_api_url = "http://localhost:8080/"');
+    console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:')
+    console.log('cors_api_url = "http://localhost:8080/"')
   }
+
 </script>
 </body>
 </html>

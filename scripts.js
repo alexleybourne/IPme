@@ -1,11 +1,9 @@
 const url1 = "https://ipapi.co/json/"
 var ipAddress = ""
 var fraudScore = ""
-
-
+var ipCheckSRC = ""
 
 requestIP()
-
 
 function requestIP() {
     function createNode(element) {
@@ -34,7 +32,7 @@ function requestIP() {
         document.getElementById("map").src = mapSRC
         console.log("Google Maps link:  " + mapSRC)
 
-        iframeProxyCheck()
+        ipCheckLinkMaker()
 
       })
     .catch(function(error) {
@@ -42,34 +40,55 @@ function requestIP() {
     }) 
 }
 
-// Proxy Check
-
-
-function frameload(){
-    var iframe = document.getElementById("myIframe")
-
-    alert("iframe loaded")
-    console.log("iFrame loaded Successfully")
-       
-    // var fraudScore = iframe.getElementsByClassName('partner-markets')
-    // document.getElementById("fraudText").innerHTML = `${fraudScore}`
-
-    var test = iframe.getElementById( 'partner-markets' )
-    console.log( test.textContent )
-
-
-    // var elmnt = iframe.contentWindow.document.getElementById('partner-markets')[0]
-    // elmnt.innerHTML.focus()
-
-    console.log(fraudScore)
-}
-
 // Iframe Test
-function iframeProxyCheck(){
-    var iframe = document.getElementById("myIframe")
+function ipCheckLinkMaker(){
+    
+    ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/" + `${ipAddress}`
+    console.log("iP Quality Check link:  " + ipCheckSRC)
+    
+    ////////////////////////////
+    // Cors Anywhere To Grab ip Quality Score Data
 
-    let ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/" + `${ipAddress}`
-    iframe.src = ipCheckSRC
-    console.log("iFrame src link:  " + ipCheckSRC)
+    var cors_api_url = 'https://cors-anywhere.herokuapp.com/'
+    var pageScrape = ""
+    
+    function doCORSRequest(options, printResult) {
+        var x = new XMLHttpRequest();
+        x.open(options.method, cors_api_url + options.url)
+        x.onload = x.onerror = function() {
+        printResult(
+            options.method + ' ' + options.url + '\n' +
+            x.status + ' ' + x.statusText + '\n\n' +
+            (x.responseText || '')
+        )
+        }
+        if (/^POST/i.test(options.method)) {
+        x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        }
+        x.send(options.data)
+    }
+    
+    // Bind event
+    (function() {
+        var outputField = document.getElementById('output')
+        
+    
+        doCORSRequest({
+            method: "POST",
+            url: `${ipCheckSRC}`,
+        }, function printResult(result) {
+            outputField.innerHTML = result
+            pageScrape = result
+        })
+    
+        
+    })()
+    
+    if (typeof console === 'object') {
+        console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:')
+        console.log('cors_api_url = "http://localhost:8080/"')
+    }
+
+    ///////////////////////////
+          
 }
-
