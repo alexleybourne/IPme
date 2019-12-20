@@ -28,6 +28,8 @@ function requestIP() {
 
         var myJSON = JSON.stringify(data)
 
+        document.getElementById("ipScore").innerHTML = myJSON
+
         // Populates info from server
         document.getElementById("ipArea").innerHTML = `<span uk-icon="icon: search; ratio: 1.5"></span> IP: ${ipAddress}`
 
@@ -35,7 +37,6 @@ function requestIP() {
         let mapSRC = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=" + `${latitude}` + "%2C" + `${longitude}` + "&zoom=4"
         
         var mapIframe = document.getElementById("map")
-
 
         mapIframe.src = mapSRC
         console.log("Google Maps link:  " + mapSRC)
