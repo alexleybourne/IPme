@@ -71,25 +71,23 @@
     </div>
 
     <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+
+    <!-- Animation done by Vladimir Liubarskiy (https://dribbble.com/shots/5612222-Around-the-world) -->
+    <div id="worldLoader" style="margin: auto; position: absolute; z-index: 3;" ><img class="scale-in-center" style="max-width: 70%;" src="gifs/world.gif"></div>
+
     <div style="width: 100%; min-height: 70vh; flex-wrap: wrap-reverse;" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
             <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                 <div class="uk-card-body uk-text-center" style="display: flex; flex-direction: column; align-self: center; justify-self: center; margin: auto; height: 92%" >
                  
                     <tr>
                         <td>
-                            <!-- Animation done by Vladimir Liubarskiy (https://dribbble.com/shots/5612222-Around-the-world) -->
-                            <div id="worldLoader" style="margin: auto;" ><img  style="max-width: 70%;" src="gifs/world.gif"></div>
-                            
-                            <iframe id="map" class="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=LONGITUDE%2CLATITUDE&zoom=12" width="100%" height="100%" frameborder="0" allowfullscreen="" style="position: absolute; opacity: 0;" ></iframe>
+                            <iframe id="map" onload="mapLoaded()" class="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=LONGITUDE%2CLATITUDE&zoom=12" width="100%" height="100%" frameborder="0" allowfullscreen="" style="position: absolute; opacity: 0;" ></iframe>
                         </td>
                     </tr>
                 </div>
             </div>
             <div style="display: flex;" >
                 <div class="uk-card-body uk-text-center" style="display: flex; flex-direction: column; align-self: center; justify-self: center;" >
-                    
-                    <div id="cloudLoader"><img style="position: relative; margin: auto;" src="gifs/cloud.gif" height= "auto" width="160px" ></div>
-                    
                     <h3 id="ipArea" style="color: #007bff; font-weight: bold;" class="uk-card-title uk-text-center"></h3>
                     <p id="riskLevel" style="font-size: 12px; font-weight: bold;"></p>
                     <p id="ipScore" style="font-size: 12px; font-weight: bold;"></p>

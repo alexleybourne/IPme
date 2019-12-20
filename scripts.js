@@ -28,10 +28,6 @@ function requestIP() {
 
         var myJSON = JSON.stringify(data)
 
-        // Hides Cloud Loader Gif
-
-        document.getElementById("cloudLoader").innerHTML = ""
-
         // Populates info from server
         document.getElementById("ipArea").innerHTML = `<span uk-icon="icon: search; ratio: 1.5"></span> IP: ${ipAddress}`
 
@@ -46,16 +42,19 @@ function requestIP() {
 
 
         mapIframe.style.position = ""
-        mapIframe.style.opacity = "1"
-
+        
         ipCheckLinkMaker()
-        // Hides Loader
-        document.getElementById("worldLoader").innerHTML = ""
 
       })
     .catch(function(error) {
       console.log(error)
     }) 
+}
+
+// When Map Loads
+function mapLoaded(){
+    // alert("iframe loaded")
+    document.getElementById("map").style.opacity = "1"
 }
 
 // Iframe Test
@@ -66,6 +65,13 @@ function ipCheckLinkMaker(){
     
     ////////////////////////////
     // Cors Anywhere To Grab ip Quality Score Data
+
+    // Demo          :   https://robwu.nl/cors-anywhere.html
+    // Source code   :   https://github.com/Rob--W/cors-anywhere/
+    // Documentation :   https://github.com/Rob--W/cors-anywhere/#documentation
+
+    // Created by Rob W ( Thanks :) )
+    // https://github.com/Rob--W
 
     var cors_api_url = 'https://cors-anywhere.herokuapp.com/'
     var pageScrape = ""
