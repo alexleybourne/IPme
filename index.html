@@ -30,17 +30,14 @@
     />
     <link rel="manifest" href="favicon/site.webmanifest" />
 
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script src="scripts.js"></script>
 
     <!-- UI Kit -->
     <link rel="stylesheet" href="uikit/uikit.min.css" />
     <script src="uikit/uikit.min.js"></script>
     <script src="uikit/uikit-icons.min.js"></script>
 
-    <!-- Map Kit -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="scripts.js"></script>
 
   </head>
   <body>
@@ -70,11 +67,18 @@
       </div>
     </div>
 
-    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+    <div id="notificationArea">
+      <div id="notification" class="uk-alert-danger uk-animation-slide-top uk-text-center" uk-alert >
+        <a class="uk-alert-close" uk-close></a>
+        <p>ERROR IP request failed. Please try again.</p>
+      </div>
+    <div>
+    
+  <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
 
     <!-- Animation done by Vladimir Liubarskiy (https://dribbble.com/shots/5612222-Around-the-world) -->
     <div id="worldLoader" style="margin: auto; position: absolute; z-index: 3;" ><img class="scale-in-center" style="max-width: 70%;" src="gifs/world.gif"></div>
-
+    
     <div style="width: 100%; min-height: 70vh; flex-wrap: wrap-reverse;" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
             <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
                 <div class="uk-card-body uk-text-center" style="display: flex; flex-direction: column; align-self: center; justify-self: center; margin: auto; height: 92%" >

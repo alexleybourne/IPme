@@ -6,6 +6,16 @@ var ipCheckSRC = ""
 
 requestIP()
 
+async function sleep(time) {
+    return new Promise(r => setTimeout(r, time))
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    var notifications = document.getElementById("notification")
+    await sleep(1000)
+    UIkit.alert(notifications).close()
+})
+
 //  Free IP Api -> URL 1
 function requestIP() {
     function createNode(element) {
@@ -49,23 +59,20 @@ function requestIP() {
       })
     .catch(function(error) {
       console.log(error)
+
     }) 
 }
 
 // When Map Loads
-function mapLoaded(){
+async function mapLoaded(){
     // alert("iframe loaded")
     document.getElementById("worldLoader").innerHTML = `<img class="scale-out-center" style="max-width: 70%;" src="gifs/world.gif">`
     
-    setTimeout(function() {
-        document.getElementById("map").style.opacity = "1"
-        document.getElementById("textArea").style.opacity = "1"
-    },200)
-
-    setTimeout(function() {
+    await sleep(200)
+    document.getElementById("map").style.opacity = "1"
+    document.getElementById("textArea").style.opacity = "1"
     document.getElementById("worldLoader").innerHTML = ""
-    },200)
-
+    
 }
 
 // Iframe Test

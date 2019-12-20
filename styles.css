@@ -54,6 +54,12 @@
     width: 1px;
 }
 
+.uk-notification-message {
+  border-radius: 50px;
+  padding: 8px !important;
+  align-text: center;
+}
+
 @media screen and (max-width: 639px) {
   .uk-first-column {
       margin-bottom: inherit !important;
