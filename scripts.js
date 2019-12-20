@@ -3,6 +3,7 @@
 const url1 = "https://ipapi.co/json/"
 var ipAddress = ""
 var ipCheckSRC = ""
+var vpnDetected = "loading"
 
 requestIP()
 
@@ -158,8 +159,10 @@ function ipCheckLinkMaker(){
 
             if (ipNum > 40){
             
-                document.getElementById("ipArea").innerHTML = `IP: ${ipAddress}`
-
+                document.getElementById("ipArea").innerHTML = `VPN IP: ${ipAddress}`
+                var vpnDetected = "Yes"
+            } else {
+                var vpnDetected = "No"
             }
 
         })
