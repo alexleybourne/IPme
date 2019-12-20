@@ -45,3 +45,9 @@
     height: 1px;
     width: 1px;
 }
+
+@media screen and (max-width: 639px) {
+  .uk-first-column {
+      margin-bottom: inherit !important;
+  }
+}
