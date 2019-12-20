@@ -6,6 +6,7 @@ var ipCheckSRC = ""
 
 requestIP()
 
+// Sleep Function
 async function sleep(time) {
     return new Promise(r => setTimeout(r, time))
 }
@@ -59,6 +60,19 @@ function requestIP() {
       })
     .catch(function(error) {
       console.log(error)
+
+      // Error Banner / Alert
+      document.getElementById("notificationArea").innerHTML = `
+        <div id="notification" class="uk-alert-danger uk-animation-slide-top uk-text-center" uk-alert >
+            <a class="uk-alert-close" uk-close></a>
+            <p>ERROR IP request failed. Please try again.</p>
+        </div>`
+
+        async function closeNotification(){
+            var notifications = document.getElementById("notification")
+            await sleep(1000)
+            UIkit.alert(notifications).close()
+        }
 
     }) 
 }
@@ -133,8 +147,9 @@ function ipCheckLinkMaker(){
             var ipDescription = document.getElementsByClassName("partner-markets")[0]
             var ipDescriptionDelete = ipDescription.getElementsByTagName("span")[0]
             var ipDescription2 = ipDescription
-            console.log("IP Risk Level:  " + ipDescriptionDelete.innerHTML)
-            document.getElementById("riskLevel").innerHTML = ipDescriptionDelete.innerHTML
+            var riskLevel = ipDescriptionDelete.innerHTML
+            console.log("IP Risk Level:  " + riskLevel)
+            document.getElementById("riskLevel").innerHTML = riskLevel
 
             ipDescription2.getElementsByTagName("span")[0].innerHTML = ""
             console.log("IP Description:  " + ipDescription2.innerHTML)
