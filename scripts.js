@@ -54,7 +54,17 @@ function requestIP() {
 // When Map Loads
 function mapLoaded(){
     // alert("iframe loaded")
-    document.getElementById("map").style.opacity = "1"
+    document.getElementById("worldLoader").innerHTML = `<img class="scale-out-center" style="max-width: 70%;" src="gifs/world.gif">`
+    
+    setTimeout(function() {
+        document.getElementById("map").style.opacity = "1"
+        document.getElementById("textArea").style.opacity = "1"
+    },200)
+
+    setTimeout(function() {
+    document.getElementById("worldLoader").innerHTML = ""
+    },200)
+
 }
 
 // Iframe Test

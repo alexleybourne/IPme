@@ -81,13 +81,13 @@
                  
                     <tr>
                         <td>
-                            <iframe id="map" onload="mapLoaded()" class="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=LONGITUDE%2CLATITUDE&zoom=12" width="100%" height="100%" frameborder="0" allowfullscreen="" style="position: absolute; opacity: 0;" ></iframe>
+                            <iframe id="map" onload="mapLoaded()" class="map fadeTransition" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAr3-W5QaQSP93-XOj7c1eWVcWCM_UErlU&q=LONGITUDE%2CLATITUDE&zoom=12" width="100%" height="100%" frameborder="0" allowfullscreen="" style="position: absolute; opacity: 0;" ></iframe>
                         </td>
                     </tr>
                 </div>
             </div>
             <div style="display: flex;" >
-                <div class="uk-card-body uk-text-center" style="display: flex; flex-direction: column; align-self: center; justify-self: center;" >
+                <div id="textArea" class="fadeTransition uk-card-body uk-text-center" style="opacity: 0; display: flex; flex-direction: column; align-self: center; justify-self: center;" >
                     <h3 id="ipArea" style="color: #007bff; font-weight: bold;" class="uk-card-title uk-text-center"></h3>
                     <p id="riskLevel" style="font-size: 12px; font-weight: bold;"></p>
                     <p id="ipScore" style="font-size: 12px; font-weight: bold;"></p>
