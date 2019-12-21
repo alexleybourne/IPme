@@ -66,13 +66,16 @@ function requestIP() {
     .catch(function(error) {
       console.log(error)
 
+      async function errorNotification(){
+        
+
       // Error Banner / Alert
       document.getElementById("notificationArea").innerHTML = `
         <div id="notification" class="uk-alert-danger uk-animation-slide-top uk-text-center" uk-alert >
             <a class="uk-alert-close" uk-close></a>
             <p>ERROR IP request failed. Please try again.</p>
         </div>`
-
+      }
         async function closeNotification(){
             var notifications = document.getElementById("notification")
             await sleep(1000)
@@ -84,7 +87,9 @@ function requestIP() {
 
 // When Map Loads
 async function mapLoaded(){
-    // alert("iframe loaded")
+    console.log("iframe loaded")
+    
+    
     document.getElementById("worldLoader").innerHTML = `<img class="scale-out-center" style="max-width: 70%;" src="gifs/world.gif">`
     
     await sleep(200)
@@ -97,7 +102,7 @@ async function mapLoaded(){
 // Iframe Test
 function ipCheckLinkMaker(){
     
-    ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/" + `${ipAddress}`
+    ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/look/" + `${ipAddress}`
     console.log("iP Quality Check link:  " + ipCheckSRC)
     
     ////////////////////////////
@@ -120,8 +125,8 @@ function ipCheckLinkMaker(){
         printResult(
             options.method + ' ' + options.url + '\n' +
             x.status + ' ' + x.statusText + '\n\n' +
-            (x.responseText || '')
-        )
+            (x.responseText || ''))
+
         }
         if (/^POST/i.test(options.method)) {
         x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
@@ -140,42 +145,69 @@ function ipCheckLinkMaker(){
         }, function printResult(result) {
             outputField.innerHTML = result
             pageScrape = result
-
-            var ipScore = (document.getElementsByClassName("partner-markets")[1])
-            var ipNum = ipScore.getElementsByTagName('span')[0].innerHTML
-            console.log("IP Score:  " + ipNum)
-
-            document.getElementById("ipScore").innerHTML = ("Level of Risk = " + ipNum + " / 100")
-
-
-            // Description of IP and Level of Risk
-            var ipDescription = document.getElementsByClassName("partner-markets")[0]
-            var ipDescriptionDelete = ipDescription.getElementsByTagName("span")[0]
-            var ipDescription2 = ipDescription
-            var riskLevel = ipDescriptionDelete.innerHTML
-            console.log("IP Risk Level:  " + riskLevel)
-            document.getElementById("riskLevel").innerHTML = riskLevel
-
-            ipDescription2.getElementsByTagName("span")[0].innerHTML = ""
-            console.log("IP Description:  " + ipDescription2.innerHTML)
-
-            document.getElementById("ipDescription").innerHTML = ipDescription2.innerHTML.replace( /- /g,'')
-
-            if (ipNum > 40){
             
-                document.getElementById("ipArea").innerHTML = `VPN IP: ${ipAddress}`
-                var vpnDetected = "Yes"
-            } else {
-                var vpnDetected = "No"
+            var ipScore = (document.getElementsByClassName("partner-markets")[1])
+            try { 
+                var ipNum = ipScore.getElementsByTagName('span')[0].innerHTML
+                dataUpdate() 
+            }
+            catch(err) {
+                console.log("Error: " + err + ".") 
+                // errorBanner()
+            }
+            
+            function dataUpdate() {
+               
+                console.log("IP Score:  " + ipNum)
+
+                document.getElementById("ipScore").innerHTML = ("Level of Risk = " + ipNum + " / 100")
+
+
+                // Description of IP and Level of Risk
+                var ipDescription = document.getElementsByClassName("partner-markets")[0]
+                var ipDescriptionDelete = ipDescription.getElementsByTagName("span")[0]
+                var ipDescription2 = ipDescription
+                var riskLevel = ipDescriptionDelete.innerHTML
+                console.log("IP Risk Level:  " + riskLevel)
+                document.getElementById("riskLevel").innerHTML = riskLevel
+
+                ipDescription2.getElementsByTagName("span")[0].innerHTML = ""
+                console.log("IP Description:  " + ipDescription2.innerHTML)
+
+                document.getElementById("ipDescription").innerHTML = ipDescription2.innerHTML.replace( /- /g,'')
+
+                if (ipNum > 40){
+                
+                    document.getElementById("ipArea").innerHTML = `VPN IP: ${ipAddress}`
+                    var vpnDetected = "Yes"
+                } else {
+                    var vpnDetected = "No"
+                }
             }
 
         })
     
         
     })()
-    
-    
 
     ///////////////////////////
 
+}
+
+
+async function errorBanner(){
+
+    await sleep(200)
+
+    // Error Banner / Alert
+    document.getElementById("notificationBannerArea").innerHTML = `
+    <div id="notification" class="uk-alert-danger uk-animation-slide-top uk-text-center" uk-alert >
+        <a class="uk-alert-close" uk-close></a>
+        <p>Could not Connect to VPN & PROXY Detection Server</p>
+    </div>`
+
+    var notifications = document.getElementById("notification")
+    await sleep(1000)
+    UIkit.alert(notifications).close()
+    
 }
