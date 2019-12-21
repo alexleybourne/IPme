@@ -12,11 +12,15 @@ async function sleep(time) {
     return new Promise(r => setTimeout(r, time))
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    var notifications = document.getElementById("notification")
-    await sleep(1000)
-    UIkit.alert(notifications).close()
-})
+async function reloadPage() {
+
+    document.getElementById("map").style.opacity = "0"
+    document.getElementById("textArea").style.opacity = "0"
+
+    await sleep(400)
+
+    location.reload()
+}
 
 //  Free IP Api -> URL 1
 function requestIP() {
