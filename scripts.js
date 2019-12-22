@@ -102,7 +102,7 @@ async function mapLoaded(){
 // Iframe Test
 function ipCheckLinkMaker(){
     
-    ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/look/" + `${ipAddress}`
+    ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/" + `${ipAddress}`
     console.log("iP Quality Check link:  " + ipCheckSRC)
     
     ////////////////////////////
