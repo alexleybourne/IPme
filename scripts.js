@@ -47,6 +47,12 @@ function requestIP() {
 
         console.log("IP Address:  " + ipAddress)
 
+        // Getting Local Time from IP
+
+        var localTime = new Date().toLocaleString("en-US", {timeZone: data.timezone});
+        localTime = new Date(localTime);
+        console.log('Local time in ' + countryCity + ': '+localTime.toLocaleString())
+
         var myJSON = JSON.stringify(data)
 
         document.getElementById("ipScore").innerHTML = myJSON
