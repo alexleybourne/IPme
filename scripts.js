@@ -16,6 +16,7 @@ async function reloadPage() {
 
     document.getElementById("map").style.opacity = "0"
     document.getElementById("textArea").style.opacity = "0"
+    document.getElementById("locationText").style.opacity = "0"
 
     await sleep(400)
 
@@ -71,24 +72,30 @@ function requestIP() {
     .catch(function(error) {
       console.log(error)
 
-      async function errorNotification(){
-        
-
-      // Error Banner / Alert
-      document.getElementById("notificationArea").innerHTML = `
-        <div id="notification" class="uk-alert-danger uk-animation-slide-top uk-text-center" uk-alert >
-            <a class="uk-alert-close" uk-close></a>
-            <p>ERROR IP request failed. Please try again.</p>
-        </div>`
-      }
-        async function closeNotification(){
-            var notifications = document.getElementById("notification")
-            await sleep(1000)
-            UIkit.alert(notifications).close()
-        }
-
+      document.getElementById("mainDivArea").innerHTML = `<!-- Error Page -->
+    <div class="scale-in-center" id="errorDino" style="margin: auto; position: absolute; z-index: 3; display: flex; flex-direction: column;" >
+      <h3 style="align-self: center; color: #007bff; font-weight: bold; margin: 0px;  font-size: 45px;" >Ooops</h3>
+      <h3 style="align-self: center; color: #007bff; font-weight: bold; margin: 0px;  font-size: 16px;" >Somehting Went Wrong...</h3>
+      <img  style="max-width: 50%; align-self: center; margin: 20px;" src="gifs/dino.gif">
+      <button class="uk-button uk-button-primary uk-button-small" style="background-color: #007bff;border-radius: 50px;width: fit-content; align-self: center; margin: 10px;" onclick="retryError()" > Retry </button>
+    </div>
+    
+    <div style="width: 100%; min-height: 70vh; flex-wrap: wrap-reverse;" class="uk-card uk-card-default" >     
+        <div id="textArea" class="fadeTransition uk-card-body uk-text-center" style="opacity: 1; display: flex; flex-direction: column; align-content: center; justify-content: center; overflow-wrap: break-word;" >
+        </div>
+      </div>
+    </div>`
+    
+      
     }) 
 }
+
+// Retry Function (Error Reload Basically)
+
+function retryError(){
+    location.reload()
+}
+
 
 // When Map Loads
 async function mapLoaded(){
@@ -101,6 +108,7 @@ async function mapLoaded(){
     document.getElementById("map").style.opacity = "1"
     document.getElementById("textArea").style.opacity = "1"
     document.getElementById("worldLoader").innerHTML = ""
+    document.getElementById("locationText").style.opacity = "1"
     
 }
 
@@ -181,9 +189,7 @@ function ipCheckLinkMaker(){
 
                 document.getElementById("ipDescription").innerHTML = ipDescription2.innerHTML.replace( /- /g,'')
 
-                if (ipNum > 40){
-                
-                    document.getElementById("ipArea").innerHTML = `VPN IP: ${ipAddress}`
+                if (ipNum > 30){
                     var vpnDetected = "Yes"
                 } else {
                     var vpnDetected = "No"
