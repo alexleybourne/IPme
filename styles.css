@@ -22,6 +22,17 @@
     border-radius: 10px;
 }
 
+.mapTextCover {
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  bottom: 10px;
+  align-self: center;
+    
+}
+}
+
 .fadeTransition {
   -webkit-transition:opacity 0.5s linear;
   -moz-transition:opacity 0.5s linear;
