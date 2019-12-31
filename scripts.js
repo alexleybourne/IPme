@@ -73,7 +73,10 @@ function requestIP() {
         document.getElementById("locationText").innerHTML = countryCity + ", " + countryName + " " + (getFlags(countryCode))
 
         document.getElementById("locationField").innerHTML = countryCity + ", " + data.region + ", " + countryName + " " + (getFlags(countryCode))
-        document.getElementById("coordinatesField").innerHTML = "longitude: " + data.longitude + ", " + "latitude: " + data.latitude
+        document.getElementById("coordinatesField").innerHTML = data.longitude + ", " + data.latitude
+        document.getElementById("asnField").innerHTML = data.asn
+        document.getElementById("orgField").innerHTML = data.org
+        
         
 
 
@@ -211,7 +214,7 @@ function ipCheckLinkMaker(){
                 var ipDescriptionFull = ipDescription2.innerHTML.replace( /- /g,'')
                 ipDescriptionFull = ipDescriptionFull.replace(/<\/?span[^>]*>/g,"")
 
-                
+                document.getElementById("descriptionField").innerHTML = ipDescriptionFull
 
                 console.log("IP Description:  " + ipDescriptionFull)
 
