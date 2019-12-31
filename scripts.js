@@ -47,14 +47,17 @@ function requestIP() {
 
         console.log("IP Address:  " + ipAddress)
 
-        // Getting Local Time from IP
+        // Getting Local Time from IP with live update
+        var intervalID = window.setInterval(localTimeUpdate, 1000);
 
-        var localTime = new Date().toLocaleString("en-US", {timeZone: data.timezone});
-        localTime = new Date(localTime);
-        console.log('Local time in ' + countryCity + ': '+localTime.toLocaleString())
-
-        document.getElementById("timeZoneField").innerHTML = localTime.toLocaleString()
-
+        function localTimeUpdate(){
+        var localTime = new Date().toLocaleString("en-US", {timeZone: data.timezone})
+        localTime = new Date(localTime)
+        localTimeValue = localTime.toLocaleString()
+        
+        
+        document.getElementById("timeZoneField").innerHTML = localTimeValue
+        }
 
         var myJSON = JSON.stringify(data)
 
