@@ -33,7 +33,13 @@
 }
 
 .uk-table td {
-  padding: 6px !important;
+  padding: 2px !important;
+}
+
+.hiddenButton {
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .fadeTransition {

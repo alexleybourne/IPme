@@ -53,10 +53,12 @@ function requestIP() {
         localTime = new Date(localTime);
         console.log('Local time in ' + countryCity + ': '+localTime.toLocaleString())
 
+        document.getElementById("timeZoneField").innerHTML = localTime.toLocaleString()
+
+
         var myJSON = JSON.stringify(data)
 
-        document.getElementById("ipScore").innerHTML = myJSON
-
+        
         // Populates info from server
         document.getElementById("ipArea").innerHTML = `<span uk-icon="icon: search; ratio: 1.5"></span> IP: ${ipAddress}`
 
@@ -69,6 +71,11 @@ function requestIP() {
         console.log("Google Maps link:  " + mapSRC)
 
         document.getElementById("locationText").innerHTML = countryCity + ", " + countryName + " " + (getFlags(countryCode))
+
+        document.getElementById("locationField").innerHTML = countryCity + ", " + data.region + ", " + countryName + " " + (getFlags(countryCode))
+        document.getElementById("coordinatesField").innerHTML = "longitude: " + data.longitude + ", " + "latitude: " + data.latitude
+        
+
 
         mapIframe.style.position = ""
         
@@ -118,7 +125,18 @@ async function mapLoaded(){
     
 }
 
-// Iframe Test
+var attempts = 1
+
+function ipCheckLinkMakerTryAgain() {
+    if (attempts < 3) {
+        attempts ++ 
+        console.log("Trying to load ip quality score attempt:" + attempts)
+    } else {
+        console.log("Can't get data from ip quality Score")
+    }
+}
+
+// Gets data from IPQUALITYSCORE
 function ipCheckLinkMaker(){
     
     ipCheckSRC = "https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/" + `${ipAddress}`
@@ -172,33 +190,38 @@ function ipCheckLinkMaker(){
             }
             catch(err) {
                 console.log("Error: " + err + ".") 
-                // errorBanner()
+                ipCheckLinkMakerTryAgain()
             }
             
             function dataUpdate() {
                
                 console.log("IP Score:  " + ipNum)
 
-                document.getElementById("ipScore").innerHTML = ("Level of Risk = " + ipNum + " / 100")
-
-
+                
                 // Description of IP and Level of Risk
                 var ipDescription = document.getElementsByClassName("partner-markets")[0]
                 var ipDescriptionDelete = ipDescription.getElementsByTagName("span")[0]
                 var ipDescription2 = ipDescription
                 var riskLevel = ipDescriptionDelete.innerHTML
                 console.log("IP Risk Level:  " + riskLevel)
-                document.getElementById("riskLevel").innerHTML = riskLevel
+                document.getElementById("riskLevel").innerHTML = ipNum + " / 100 - " + riskLevel
 
                 ipDescription2.getElementsByTagName("span")[0].innerHTML = ""
-                console.log("IP Description:  " + ipDescription2.innerHTML)
 
-                document.getElementById("ipDescription").innerHTML = ipDescription2.innerHTML.replace( /- /g,'')
+                var ipDescriptionFull = ipDescription2.innerHTML.replace( /- /g,'')
+                ipDescriptionFull = ipDescriptionFull.replace(/<\/?span[^>]*>/g,"")
+
+                
+
+                console.log("IP Description:  " + ipDescriptionFull)
 
                 if (ipNum > 30){
-                    var vpnDetected = "Yes"
+                    // var vpnDetected = "Yes"
+                    document.getElementById("proxyField").innerHTML = "Detected"
+
                 } else {
-                    var vpnDetected = "No"
+                    // var vpnDetected = "No"
+                    document.getElementById("proxyField").innerHTML = "None Detected"
                 }
             }
 

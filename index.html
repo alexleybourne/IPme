@@ -94,21 +94,33 @@
                     <table class="uk-table uk-table-divider">
                       <tbody>
                           <tr>
-                              <td>Location</td>
-                              <td>Test</td>
-                              
+                            <td>Risk:</td>
+                            <td id="riskLevel"><div uk-spinner="ratio: 0.5"></td>
+                          </tr>
+
+                          <tr>
+                            <td>VPN / Proxy:</td>
+                            <td id="proxyField"><div uk-spinner="ratio: 0.5"></td>
+                          </tr>
+
+                          <tr>
+                            <td>Location:</td>
+                            <td id="locationField"></td>
                           </tr>
                           <tr>
-                              <td>Risk</td>
-                              <td>Test</td>
+                            <td>Coordinates:</td>
+                            <td id="coordinatesField"></td>
                           </tr>
+                          <tr>
+                            <td>Local Time:</td>
+                            <td id="timeZoneField"></td>
+                          </tr>
+                          
                           
                       </tbody>
                     </table>
 
-                    <p id="riskLevel" style="font-size: 12px; font-weight: bold;"></p>
-                    <p id="ipScore" style="font-size: 12px; font-weight: bold;"></p>
-                    <div id="ipDescription" style="font-size: 12px; font-weight: bold;"></div>
+                    
                     <br>
                     <button class="uk-button uk-button-primary uk-button-small" style="background-color: #007bff;border-radius: 50px;width: fit-content;align-self: center; "onclick="reloadPage()">Reload</button>
                 </div>
