@@ -90,23 +90,27 @@
             </div>
             <div style="display: flex;" >
                 <div id="textArea" class="fadeTransition uk-card-body uk-text-center" style="opacity: 0; display: flex; flex-direction: column; align-self: center; justify-self: center; overflow-wrap: break-word;" >
-                    <h3 id="ipArea" style="color: #007bff; font-weight: bold;" class="uk-card-title uk-text-center"></h3></button>
+                    <!-- <h3 id="ipArea" style="color: #007bff; font-weight: bold;" class="uk-card-title uk-text-center"></h3> -->
+                    <ul uk-accordion>
+                      <li>
+                          <a class="uk-accordion-title" style="color: #007bff; font-weight: bold;" id="ipArea">Item 1</a>
+                          <div class="uk-accordion-content">
+                              <p id="descriptionField" style=""></p>
+                          </div>
+                      </li>
+                    </ul>
                     <table class="uk-table uk-table-divider">
                       <tbody>
-                          <tr>
-                            <td>Risk:</td>
-                            <td id="riskLevel"><div uk-spinner="ratio: 0.5"></td>
-                          </tr>
-
+                          
                           <tr>
                             <td>VPN / Proxy:</td>
                             <td id="proxyField"><div uk-spinner="ratio: 0.5"></td>
                           </tr>
 
                           <tr>
-                            <td>Info:</td>
-                            <td id="descriptionField" ><div uk-spinner="ratio: 0.5"></td>
-                          </tr>
+                            <td>Risk:</td>
+                            <td id="riskLevel"><div uk-spinner="ratio: 0.5"></td>
+                            </tr>
 
                           <tr>
                             <td>Location:</td>
