@@ -3,6 +3,7 @@
 }
 
 *{
+  /* GRRRRR WORK */
   overflow: hidden;
 }
 
@@ -63,10 +64,6 @@
 .uk-card {
     border-radius: 10px !important;
     margin: 4vh 5vw 2vh 5vw !important;
-}
-
-* {
-    overflow-y: scroll;
 }
 
 .uk-button { 
