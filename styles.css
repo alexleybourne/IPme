@@ -2,6 +2,10 @@
     color: white!important;   
 }
 
+*{
+  overflow: hidden;
+}
+
 .uk-tooltip {
     display: none;
     position: absolute;

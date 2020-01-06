@@ -55,7 +55,6 @@ function requestIP() {
         localTime = new Date(localTime)
         localTimeValue = localTime.toLocaleString()
         
-        
         document.getElementById("timeZoneField").innerHTML = localTimeValue
         }
 
