@@ -2,7 +2,7 @@
     color: white!important;   
 }
 
-*{
+*:not(body){
   /* GRRRRR WORK */
   overflow: hidden;
 }
