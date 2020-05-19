@@ -7,6 +7,10 @@
   overflow: hidden;
 }
 
+.uk-accordion-title::before {
+  /* background-color: #007bff; */
+}
+
 .uk-tooltip {
     display: none;
     position: absolute;
@@ -32,7 +36,7 @@
   background-color: white;
   border-radius: 5px;
   padding: 5px 10px;
-  bottom: 10px;
+  bottom: 2vh;
   align-self: center;
   opacity: 0;
 }
