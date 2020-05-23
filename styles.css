@@ -2,13 +2,51 @@
     color: white!important;   
 }
 
-* {
-  transition-duration: 0.2s;
-}
-
 *:not(body){
   /* GRRRRR WORK */
   overflow: hidden;
+}
+
+input {
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 4px;
+  font-size: 16px;
+  color: white;
+  background-color: transparent;
+  padding: 6px 20px 6px 12px;
+  transition: width 0.4s ease-in-out;
+  outline: none;
+}
+
+input:focus {
+  width: 80%;
+  border: 2px solid white;
+  outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 0.5; /* Firefox */
+}
+
+input:focus + .search-icon {
+  height: 30px !important;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.search-icon {
+  transition-duration: 0.2s;
+  opacity: 0;
+  height: 30px !important;
+  cursor: default;
+}
+
+.search-icon:hover {
+  height: 30px !important;
+  transform: scale(1.1);
 }
 
 .uk-accordion-title::before {
