@@ -1,7 +1,7 @@
 // Created By Alex Leybourne :)
 
 const url1 = "https://ipapi.co/json/"
-const url2 = "https://ipapi.co/URIP/json/"
+const url2 = {p1: "https://ipapi.co/", p2: "/json/"}
 var ipAddress = ""
 var ipCheckSRC = ""
 var vpnDetected = "loading"
@@ -25,10 +25,11 @@ async function reloadPage() {
 }
 
 function searchIP() {
-    console.log('yeeeteeed');
     let searchIp = document.getElementById('search-input').value
     document.getElementById('search-input').value = ''
+    let completedUrl = url2.p1 + searchIp + url2.p2
     console.log(searchIp)
+    console.log(completedUrl)
 }
 
 //  Free IP Api -> URL 1
