@@ -28,8 +28,7 @@ function searchIP() {
     let searchIp = document.getElementById('search-input').value
     document.getElementById('search-input').value = ''
     let completedUrl = url2.p1 + searchIp + url2.p2
-    console.log(searchIp)
-    console.log(completedUrl)
+    requestIP(completedUrl);
 }
 
 //  Free IP Api -> URL 1
