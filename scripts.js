@@ -26,9 +26,14 @@ async function reloadPage() {
 
 function searchIP() {
     let searchIp = document.getElementById('search-input').value
-    document.getElementById('search-input').value = ''
-    let completedUrl = url2.p1 + searchIp + url2.p2
-    requestIP(completedUrl);
+    if (searchIp.length > 6) {
+        let completedUrl = url2.p1 + searchIp + url2.p2
+        requestIP(completedUrl)
+        document.getElementById('search-input').value = ''
+    } else {
+        console.log('invalid IP')
+    }
+    
 }
 
 //  Free IP Api -> URL 1
