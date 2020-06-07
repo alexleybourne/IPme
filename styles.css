@@ -26,13 +26,23 @@ input:focus {
   outline: none;
 }
 
+.input-focus {
+  width: 80%;
+  border: 2px solid white;
+  outline: none;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
   opacity: 0.5; /* Firefox */
 }
 
 input:focus + .search-icon {
-  height: 30px !important;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.icon-active {
   opacity: 1;
   cursor: pointer;
 }
@@ -45,7 +55,6 @@ input:focus + .search-icon {
 }
 
 .search-icon:hover {
-  height: 30px !important;
   transform: scale(1.1);
 }
 
