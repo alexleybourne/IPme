@@ -37,14 +37,9 @@ input:focus {
   opacity: 0.5; /* Firefox */
 }
 
-input:focus + .search-icon {
-  opacity: 1;
-  cursor: pointer;
-}
-
 .icon-active {
-  opacity: 1;
-  cursor: pointer;
+  opacity: 1 !important;
+  cursor: pointer !important;
 }
 
 .search-icon {

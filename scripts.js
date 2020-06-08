@@ -26,12 +26,15 @@ async function reloadPage() {
 
 function searchIP() {
     const input = document.getElementById('search-input')
+    const inputIcon = document.getElementById('search-icon')
     let searchIp = input.value
 
     if (searchIp) {
         input.classList.add("input-focus")
+        inputIcon.classList.add("icon-active")
     } else {
         input.classList.remove("input-focus")
+        inputIcon.classList.remove("icon-active")
     }
 
     if (searchIp.length > 6) {
