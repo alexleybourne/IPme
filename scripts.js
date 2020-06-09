@@ -24,7 +24,7 @@ async function reloadPage() {
     location.reload()
 }
 
-function searchIP() {
+function searchIP(click) {
     const input = document.getElementById('search-input')
     const inputIcon = document.getElementById('search-icon')
     let searchIp = input.value
@@ -37,10 +37,12 @@ function searchIP() {
         inputIcon.classList.remove("icon-active")
     }
 
-    if (searchIp.length > 6) {
+    if (searchIp.length > 6 && click) {
         let completedUrl = url2.p1 + searchIp + url2.p2
         requestIP(completedUrl)
         input.value = ''
+        input.classList.remove("input-focus")
+        inputIcon.classList.remove("icon-active")
     } else {
         console.log('invalid IP')
     }
