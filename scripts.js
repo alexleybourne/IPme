@@ -1,6 +1,7 @@
 // Created By Alex Leybourne :)
 
 const url1 = "https://ipapi.co/json/"
+const url2 = "https://ipapi.co/URIP/json/"
 var ipAddress = ""
 var ipCheckSRC = ""
 var vpnDetected = "loading"
@@ -23,8 +24,15 @@ async function reloadPage() {
     location.reload()
 }
 
+function searchIP() {
+    console.log('yeeeteeed');
+    let searchIp = document.getElementById('search-input').value
+    document.getElementById('search-input').value = ''
+    console.log(searchIp)
+}
+
 //  Free IP Api -> URL 1
-function requestIP() {
+function requestIP(u) {
     function createNode(element) {
         return document.createElement(element)
     }
@@ -32,9 +40,11 @@ function requestIP() {
     function append(parent, el) {
       return parent.appendChild(el)
     }
+
+    let thisUrl = u ? u : url1;
     
     const ul = document.getElementById('query')
-    fetch(url1)
+    fetch(thisUrl)
     .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
@@ -158,7 +168,6 @@ function ipCheckLinkMaker(){
     // https://github.com/Rob--W
 
     var cors_api_url = 'https://cors-anywhere.herokuapp.com/'
-    var pageScrape = ""
     
     function doCORSRequest(options, printResult) {
         var x = new XMLHttpRequest();
@@ -186,7 +195,6 @@ function ipCheckLinkMaker(){
             url: `${ipCheckSRC}`,
         }, function printResult(result) {
             outputField.innerHTML = result
-            pageScrape = result
             
             var ipScore = (document.getElementsByClassName("partner-markets")[1])
             try { 
